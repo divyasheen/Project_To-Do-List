@@ -1,0 +1,2 @@
+Color scheme:
+#FFE9D0, #FFFED3, #BBE9FF, #B1AFFF

@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Add() {
   const [data, setData] = useState({ heading: "", toDo: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
  const handleSubmit = (e) => {
-    e-preventDefault();
-
+    e.preventDefault();
+    navigate("/")
   }
 
   console.log(data);
