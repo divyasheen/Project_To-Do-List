@@ -1,32 +1,28 @@
 import { useState, useEffect } from "react";
 
 function InspoPhrase() {
-const [phrase, setPhrase] = useState({})
+  const [phrase, setPhrase] = useState({});
 
-useEffect(()=>{
+  useEffect(() => {
     fetch("https://dummyjson.com/quotes")
-    .then(resp=>resp.json())
-    .then(data=>setPhrase(data)
+      .then((resp) => resp.json())
+      .then((data) => setPhrase(data))
+      .catch((error) => console.log(error.message));
+  }, []);
 
-)
-    .catch(error=>console.log(error.message))
-}, [])
-
-
-
-
+  const randomQuote =
+    phrase.quotes?.[Math.floor(Math.random() * phrase.quotes.length)];
 
   return (
-    <div>
-<h2>Your inspiration for today is: </h2>
-<ul>
-  {phrase.quotes?.map((el) => (
-    <li key={el.id}>{el.quote}</li>
-  ))}
-</ul>
-
-    </div>
-  )
+    <>
+      {randomQuote && (
+        <div key={randomQuote.id}>
+          <h4>&quot;{randomQuote.quote}&quot;</h4>
+          <p>{randomQuote.author}</p>
+        </div>
+      )}
+    </>
+  );
 }
 
-export default InspoPhrase
+export default InspoPhrase;
