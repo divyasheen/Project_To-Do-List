@@ -4,3 +4,18 @@ Color scheme:
 
 ## NL
 ### In inspoPhrase component I have fetched a list of inspirational qoutes with useEffect and stored the list in state. Then I've used Math.random() to display only one random quote per component mount.
+
+#How to push your changes and get updated code from main to work again!
+
+->Work in your branch.
+->Push changes to your branch occassionally!
+->At EOD, merge your changes to main after taking a pull from main.
+->Once u merged your changes to main, inform Github manager.
+->After github manager, successfully merge all changes(Conflict resolution), work back in ur branch.
+->Make sure you do the following:
+  -> git checkout main
+  -> git pull
+  -> git checkout "your branch"
+  -> git merge main
+-> VOILA!!now your code is UPTODATE!
+
