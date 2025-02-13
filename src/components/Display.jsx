@@ -74,15 +74,16 @@ const startEditing = (taskId, text) => {
 
 
   // NL Sorting function
-  const sortedTasks = [...initialTasks]
-  .sort((a,b)=>{
-    if (sort === "Important"){
-      if (a.importent && !b.important) return -1;
-      if(!a.important && b.important) return 1;
-    }if (sort === "Latest"){
-      return new Date(b.timestamp) - new Date(a.timestamp);
-    } return 0;
-  })
+  // const sortedTasks = [...data].sort((a, b) => {
+  //   if (sort === "Important") {
+  //     if (a.priority === "Important" && b.priority !== "Important") return -1;
+  //     if (a.priority !== "Important" && b.priority === "Important") return 1;
+  //   }
+  //   if (sort === "Latest") {
+  //     return new Date(b.timestamp) - new Date(a.timestamp);
+  //   }
+  //   return 0;
+  // });
 
 
 
@@ -96,20 +97,6 @@ const startEditing = (taskId, text) => {
    {/* NL Sorting list Dropdown */}
     <Sort setSort={setSort}/>
     
-    {/* NL <div className="todo-list">
-        {sortedTasks.map((task) => (
-          <div
-            key={task.id}
-            className={`todo-item ${task.important ? "bg-red" : ""}`}
-          >
-            <p> {task.text}</p>
-            <span >{new Date(task.timestamp).toLocaleString()}</span>
-          </div>
-        ))}
-      </div> */}
-    
-    
-
     {/* To-Do List */}
     <div className="todo-list">
         {filteredTasks.map((task) => (
