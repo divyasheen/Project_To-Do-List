@@ -5,6 +5,12 @@
     font-family: Arial, sans-serif;
   }
   
+  body{
+    background: #FFFED3;
+  }
+
+
+  
   .todo-container {
     text-align: center;
     padding: 20px;
@@ -37,7 +43,7 @@
   .todo-item {
     display: flex;
     flex-direction: column;
-    background: #FFFED3;
+    background: #ffd0d0;
     padding: 15px;
     border-radius: 12px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
@@ -96,7 +102,7 @@
   
   .delete-btn {
     background:  #BBE9FF;
-    color: white;
+    color: #8684c9;
   }
   
   
@@ -106,4 +112,7 @@
     color: white;
   }
   
-  
+  /* InspoPhrase container*/
+  .inspo-box{
+    background-color: #FFE9D0;
+  }

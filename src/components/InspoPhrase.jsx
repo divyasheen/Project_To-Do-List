@@ -14,14 +14,14 @@ function InspoPhrase() {
     phrase.quotes?.[Math.floor(Math.random() * phrase.quotes.length)];
 
   return (
-    <>
+    <div className="inspo-box">
       {randomQuote && (
         <div key={randomQuote.id}>
           <h4>&quot;{randomQuote.quote}&quot;</h4>
           <p>{randomQuote.author}</p>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
