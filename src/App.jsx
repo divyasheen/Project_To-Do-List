@@ -4,10 +4,12 @@ import Category from "./components/Category";
 import Add from "./components/Add";
 import { Routes, Route, NavLink } from "react-router-dom";
 import InspoPhrase from "./components/InspoPhrase";
+import Logo from "./components/Logo";
 
 function App() {
   return (
     <>
+    <Logo />
       <InspoPhrase />
       {/* This div should be in Display.jsx. There it should contain <Filter /> as well.
       But don't want to interfer with Divya =D */}
