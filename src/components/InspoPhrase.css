@@ -1,0 +1,9 @@
+.inspoPhrase {
+    border: 2px solid green;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    
+    /* Why the font doesn't work? ò.ó */
+    font-family: "Satisfy", serif;
+}
