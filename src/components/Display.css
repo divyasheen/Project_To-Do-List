@@ -35,8 +35,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
+
+    border: 2px solid red;
   }
   
   /* Task Card Styling */
@@ -45,16 +47,19 @@
     flex-direction: column;
     background: #ffd0d0;
     padding: 15px;
+    margin: 0 auto;
     border-radius: 12px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
     align-items: center;
     justify-content: space-between;
     transition: 0.3s ease;
+    height: 400px;
+    width: 300px;
   }
   
   /* Hover Effect */
   .todo-item:hover {
-    transform: translateY(-5px);
+    transform: scale(1.1);
   }
   
   /* Task Content */
