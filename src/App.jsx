@@ -2,6 +2,8 @@ import "./App.css";
 import Add from "./components/Add";
 import { Routes, Route, NavLink } from "react-router-dom";
 import Display from "./components/Display";
+import InspoPhrase from './components/InspoPhrase'
+
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
     </Routes>
 
     <NavLink to = "/add">Add</NavLink>
-    
+      <InspoPhrase/>
     </>
   );
 }
