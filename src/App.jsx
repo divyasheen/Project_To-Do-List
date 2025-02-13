@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <Category/>
+
     <Routes>
       <Route index element = {<Display />}/>
       <Route path = "/" element = {<Display />}/>
