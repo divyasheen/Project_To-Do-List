@@ -18,15 +18,18 @@ function Add() {
     setThisData({ ...thisData, id: data.length });
     setData([...data, thisData]);
     navigate("/");
-    //console.log(data);
+  console.log(data);
   };
 
-  //console.log(thisData);
+  console.log(thisData);
 
   return (
     <>
       <div>Add</div>
       <form onSubmit={handleSubmit}>
+
+        {/* Here the Category and Priority will be */}
+
         <label>
           Heading
           <input
