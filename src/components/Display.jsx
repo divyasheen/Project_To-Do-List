@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Display.css";
 import Filter from "./Filter";
+import Sort from "./Sort";
 
 const initialTasks = [
     { id: 1, text: "Create a React project ✌️", completed: false, timestamp: "5:23 AM, 01/06/2022" },
@@ -20,6 +21,8 @@ function Display() {
   const [filter, setFilter] = useState("All");
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editText, setEditText] = useState("");
+
+  const [sort, setSort] = useState("New");
 
 
   // Toggle task completion
@@ -70,12 +73,40 @@ const startEditing = (taskId, text) => {
   });
 
 
+  // NL Sorting function
+  const sortedTasks = [...initialTasks]
+  .sort((a,b)=>{
+    if (sort === "Important"){
+      if (a.importent && !b.important) return -1;
+      if(!a.important && b.important) return 1;
+    }if (sort === "Latest"){
+      return new Date(b.timestamp) - new Date(a.timestamp);
+    } return 0;
+  })
+
+
+
   return (
     <div className="todo-container">
     
 
     {/* Filter Component */}
     <Filter setFilter={setFilter} />
+
+   {/* NL Sorting list Dropdown */}
+    <Sort setSort={setSort}/>
+    
+    {/* NL <div className="todo-list">
+        {sortedTasks.map((task) => (
+          <div
+            key={task.id}
+            className={`todo-item ${task.important ? "bg-red" : ""}`}
+          >
+            <p> {task.text}</p>
+            <span >{new Date(task.timestamp).toLocaleString()}</span>
+          </div>
+        ))}
+      </div> */}
     
     
 
@@ -83,6 +114,8 @@ const startEditing = (taskId, text) => {
     <div className="todo-list">
         {filteredTasks.map((task) => (
           <div key={task.id} className={`todo-item ${task.completed ? "completed" : ""}`}>
+
+ 
             
             {/* Task Content */}
             <div className="task-content">
