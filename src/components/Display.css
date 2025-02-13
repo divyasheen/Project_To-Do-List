@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  .todo-container {
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+    background: #B1AFFF,;
+  }
+ 
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /*Grid Layout for To-Do List */
+  .todo-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* Task Card Styling */
+  .todo-item {
+    display: flex;
+    flex-direction: column;
+    background: #FFFED3;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s ease;
+  }
+  
+  /* Hover Effect */
+  .todo-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Task Content */
+  .task-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  /* Checkbox & Text */
+  .task-content input {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  /* Completed Task Style */
+  .completed span {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  /* Timestamp */
+  .timestamp {
+    font-size: 12px;
+    color: gray;
+    margin-top: 5px;
+  }
+  
+  /* Button Container */
+  .task-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .delete-btn {
+    background:  #BBE9FF;
+    color: white;
+  }
+  
+  
+  
+  .edit-btn {
+    background: #B1AFFF;
+    color: white;
+  }
+  
+  
