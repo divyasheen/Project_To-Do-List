@@ -10,6 +10,7 @@ import InspoPhrase from './components/InspoPhrase'
 function App() {
   return (
     <>
+    <InspoPhrase/>
       <Category/>
 
     <Routes>
@@ -19,7 +20,7 @@ function App() {
     </Routes>
 
     <NavLink to = "/add">Add</NavLink>
-      <InspoPhrase/>
+      
     </>
   );
 }
