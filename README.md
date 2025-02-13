@@ -11,7 +11,7 @@ Color scheme:
 ->Push changes to your branch occassionally!
 ->At EOD, merge your changes to main after taking a pull from main.
 ->Once u merged your changes to main, inform Github manager.
-->After github manager, successfully merge all changes(Conflict resolution), work back in ur branch.
+->After github manager, successfully merge all changes(Conflict resolution), come back in ur branch.
 ->Make sure you do the following:
   -> git checkout main
   -> git pull
