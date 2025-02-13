@@ -1,31 +1,38 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FormContext from "../context/FormContext";
 
 function Add() {
-  const [data, setData] = useState({ heading: "", toDo: "" });
+  const { data, setData } = useContext(FormContext);
+  const [thisData, setThisData] = useState(
+    { id: null, heading: "", text: "", completed: false, timestamp: "" },
+  );
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setThisData({ ...thisData, [e.target.name]: e.target.value });
   };
 
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/")
-  }
+    setThisData({ ...thisData, id: data.length });
+    setData([...data, thisData]);
+    navigate("/");
+    //console.log(data);
+  };
 
-  console.log(data);
+  //console.log(thisData);
 
   return (
     <>
       <div>Add</div>
-      <form onSubmit = {handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label>
           Heading
           <input
             type="text"
             name="heading"
-            value={data.heading}
+            value={thisData.heading}
             placeholder="Type your heading here ... "
             onChange={handleChange}
           />
@@ -34,11 +41,21 @@ function Add() {
         <label>
           To-Do
           <textarea
-            name="toDo"
-            value={data.toDo}
+            name="text"
+            value={thisData.toDo}
             placeholder="Type your to-do here ..."
             onChange={handleChange}
           ></textarea>
+        </label>
+
+        <label>
+          Due Date:
+          <input
+            type="date"
+            name="timestamp"
+            value={thisData.timestamp}
+            onChange={handleChange}
+          />
         </label>
         <button>Save</button>
       </form>
