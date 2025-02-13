@@ -10,7 +10,16 @@ import InspoPhrase from './components/InspoPhrase'
 function App() {
   return (
     <>
-      
+      <Category/>
+
+    <Routes>
+      <Route index element = {<Display />}/>
+      <Route path = "/" element = {<Display />}/>
+      <Route path = "/add" element = {<Add />}/>
+    </Routes>
+
+    <NavLink to = "/add">Add</NavLink>
+      <InspoPhrase/>
     </>
   );
 }
