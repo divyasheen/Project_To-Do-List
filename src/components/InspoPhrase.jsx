@@ -17,8 +17,8 @@ function InspoPhrase() {
   return (
     <div className="inspo-box">
       {randomQuote && (
-        <div className ="inspoPhrase" key={randomQuote.id}>
-          <h4>&quot;{randomQuote.quote}&quot;</h4>
+        <div key={randomQuote.id}>
+          <h4 className ="inspoPhrase" >&quot;{randomQuote.quote}&quot;</h4>
           <p>{randomQuote.author}</p>
         </div>
       )}

@@ -1,0 +1,27 @@
+.logo {
+  width: 80%;
+  height: 150px;
+  margin: 3rem auto;
+  background-image: url("../assets/flowers.avif");
+  background-size: cover;
+  background-position: center;
+  border-radius: 100px;
+
+  text-align: center;
+  padding: 10px;
+  font-size: 6rem;
+  border: 5px solid #B1AFFF;
+  
+  /* #3 */
+  outline: 5px solid #BBE9FF;
+  
+  /* #4 AND INFINITY!!! (CSS3 only) */
+  box-shadow:
+      0 0 0 10px #e0f3fc,
+      0 0 0 15px #f9fbfc;
+
+      font-family: "Amatic SC", serif;
+  font-weight: 700;
+  font-style: normal;
+      color: #d3ecf8ec;;
+}
