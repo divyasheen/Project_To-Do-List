@@ -15,7 +15,6 @@ function App() {
       But don't want to interfer with Divya =D */}
       <div className = "menu">
       <button><NavLink to="/add">Add</NavLink> </button>
-        <Category />
       </div>
 
       <Routes>

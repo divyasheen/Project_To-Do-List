@@ -1,23 +1,13 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import "./Display.css";
 import Filter from "./Filter";
 import Sort from "./Sort";
+import FormContext from "../context/FormContext";
 
-const initialTasks = [
-    { id: 1, text: "Create a React project ✌️", completed: false, timestamp: "5:23 AM, 01/06/2022" },
-    { id: 2, text: "Learn React ❤️", completed: false, timestamp: "5:22 AM, 01/06/2022" },
-    { id: 3, text: "Create a Todo App 📑", completed: true, timestamp: "5:21 AM, 01/06/2022" },
-    { id: 4, text: "Create a React project ✌️", completed: false, timestamp: "5:23 AM, 01/06/2022" },
-    { id: 5, text: "Learn React ❤️", completed: false, timestamp: "5:22 AM, 01/06/2022" },
-    { id: 6, text: "Create a Todo App 📑", completed: true, timestamp: "5:21 AM, 01/06/2022" },
-    { id: 7, text: "Create a React project ✌️", completed: false, timestamp: "5:23 AM, 01/06/2022" },
-    { id: 8, text: "Learn React ❤️", completed: false, timestamp: "5:22 AM, 01/06/2022" },
-    { id: 9, text: "Create a Todo App 📑", completed: true, timestamp: "5:21 AM, 01/06/2022" },
-  ];
 
 function Display() {
 
-  const [tasks, setTasks] = useState(initialTasks);
+  const { data, setData } = useContext(FormContext);
   const [filter, setFilter] = useState("All");
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editText, setEditText] = useState("");
@@ -27,7 +17,7 @@ function Display() {
 
   // Toggle task completion
   const toggleTaskCompletion = (taskId) => {
-    setTasks((prevTasks) =>
+    setData((prevTasks) =>
       prevTasks.map((task) =>
         task.id === taskId ? { ...task, completed: !task.completed } : task
       )
@@ -35,7 +25,7 @@ function Display() {
   };
   // Function to delete a task
   const deleteTask = (taskId) => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    setData((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 // Enable Edit Mode
 const startEditing = (taskId, text) => {
@@ -50,7 +40,7 @@ const startEditing = (taskId, text) => {
 
   // Save Edited Task
   const saveEdit = () => {
-    setTasks((prevTasks) =>
+    setData((prevTasks) =>
       prevTasks.map((task) =>
         task.id === editingTaskId ? { ...task, text: editText } : task
       )
@@ -66,12 +56,11 @@ const startEditing = (taskId, text) => {
   };
 
   // Filter tasks based on selection
-  const filteredTasks = tasks.filter((task) => {
+  const filteredTasks = data.filter((task) => {
     if (filter === "Completed") return task.completed;
     if (filter === "Pending") return !task.completed;
     return true;
   });
-
 
   // NL Sorting function
   // const sortedTasks = [...data].sort((a, b) => {

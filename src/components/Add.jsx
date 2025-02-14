@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormContext from "../context/FormContext";
 import Prio from "./Prio";
+import Category from "./Category";
 
 function Add() {
   const { data, setData } = useContext(FormContext);
@@ -42,6 +43,9 @@ function Add() {
     }
   };
 
+  const [category, setCategory] = useState();
+
+
  
 
   return (
@@ -50,7 +54,9 @@ function Add() {
       <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
 
         {/* Here the Category and Priority will be */}
-<Prio setPrior={setPrior}/>
+        <Category setCategory={setCategory}/>
+        <Prio setPrior={setPrior}/>
+
 
 
         <label>
