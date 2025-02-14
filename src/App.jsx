@@ -13,7 +13,6 @@ function App() {
       <InspoPhrase />
       {/* JB: This div should be in Display.jsx. There it should contain <Filter /> as well.
       But don't want to interfer with Divya =D */}
-      
 
       <Routes>
         <Route index element={<Display />} />
