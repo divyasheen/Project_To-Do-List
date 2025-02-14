@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormContext from "../context/FormContext";
+import Prio from "./Prio";
 
 function Add() {
   const { data, setData } = useContext(FormContext);
   const [thisData, setThisData] = useState(
-    { id: null, heading: "", text: "", completed: false, timestamp: "" },
+    { id: null, heading: "", text: "", completed: false, timestamp: "", priority:"" },
   );
   const navigate = useNavigate();
 
@@ -23,12 +24,34 @@ function Add() {
 
   console.log(thisData);
 
+//NL: updating data with selected priority
+  const setPrior = (priority) => {
+    setThisData((prev) => ({ ...prev, priority }));
+  };
+
+  const priorityColor = (priority) => {
+    switch (priority) {
+      case "important":
+        return {backgroundColor: "lightcoral"}; 
+      case "medium":
+        return {backgroundColor: "yellow"};
+      case "low":
+        return {backgroundColor: "lightgreen"};
+      default:
+        return {backgroundColor: ""};
+    }
+  };
+
+ 
+
   return (
     <>
       <div>Add</div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
 
         {/* Here the Category and Priority will be */}
+<Prio setPrior={setPrior}/>
+
 
         <label>
           Heading
