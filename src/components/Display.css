@@ -6,7 +6,7 @@
   }
   
   body{
-    background: #FFFED3;
+    background: #fffed3af;
   }
 
 
@@ -15,8 +15,22 @@
     text-align: center;
     padding: 20px;
     min-height: 100vh;
-    background: #B1AFFF,;
+    background: #bbe9ffb0;
+    border-radius: 100px;
+    margin-top: 6rem;
   }
+  .menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 1rem;
+
+    button {
+      width: 100px;
+      background-color: #FFFED3;
+      font-family: "Amatic SC", serif;
+    }
+}
  
   
   h1 {
