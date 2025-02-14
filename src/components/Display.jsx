@@ -3,7 +3,9 @@ import "./Display.css";
 import Filter from "./Filter";
 import Sort from "./Sort";
 import FormContext from "../context/FormContext";
-
+import Add from "./Add";
+import Category from "./Category";
+import { NavLink } from "react-router-dom";
 
 function Display() {
 
@@ -78,13 +80,17 @@ const startEditing = (taskId, text) => {
 
   return (
     <div className="todo-container">
-    
+    <div className = "menu">
+      <button><NavLink to="/add">Add</NavLink> </button>
+        <Category />
+      
 
     {/* Filter Component */}
     <Filter setFilter={setFilter} />
 
    {/* NL Sorting list Dropdown */}
     <Sort setSort={setSort}/>
+    </div>
     
     {/* To-Do List */}
     <div className="todo-list">
