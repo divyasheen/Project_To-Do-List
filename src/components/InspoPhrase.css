@@ -1,10 +1,16 @@
 .inspoPhrase {
-    border: 2px solid green;
+    /* Why the font doesn't work? ò.ó */
+    /* NL: it works if the className is given to h4 and p tags. Though the font makes the quote hard to read :) */
+    font-family: "Amatic SC", serif;
+  font-size: 2rem;
+}
+
+.inspo-box {
+ 
     text-align: center;
     width: 80%;
     margin: 0 auto;
-    
-    /* Why the font doesn't work? ò.ó */
-    /* NL: it works if the className is given to h4 and p tags. Though the font makes the quote hard to read :) */
-    font-family: "Satisfy", serif;
+    padding: 2rem;
+    border-radius: 100px;
+    background-color: #FFE9D0;
 }

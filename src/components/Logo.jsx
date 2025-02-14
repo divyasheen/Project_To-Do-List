@@ -1,7 +1,9 @@
+import "./Logo.css";
 function Logo() {
   return (
     <>
-      <img src="src/assets/flowers.avif" alt = "best logo ever" />
+    <div className="logo">To-Do</div>
+     
     </>
   );
 }
