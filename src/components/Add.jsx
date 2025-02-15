@@ -22,13 +22,27 @@ function Add() {
     setThisData({ ...thisData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setThisData({ ...thisData, id: data.length });
-    setData([...data, thisData]);
-    navigate("/");
-    console.log(data);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setThisData({ ...thisData, id: data.length});
+  //   setData([...data, thisData]);
+  //   navigate("/");
+  //   console.log(data);
+  // };
+
+//NL: girls, could you consider adding indiv. id. (Date.now()) instead of data.length to tasks, coz I receive error?
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const newTask = {
+    ...thisData,
+    id: Date.now()
   };
+  setData([...data, newTask]); 
+  navigate("/");
+};
+
+
 
   console.log(thisData);
 
@@ -42,7 +56,7 @@ function Add() {
       case "important":
         return { backgroundColor: "lightcoral" };
       case "medium":
-        return { backgroundColor: "yellow" };
+        return { backgroundColor: "#FFFED3" };
       case "low":
         return { backgroundColor: "lightgreen" };
       default:
@@ -51,14 +65,12 @@ function Add() {
   };
   const [category, setCategory] = useState();
 
-/
 
- 
 
   return (
     <>
       <div className="addContainer">
-      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
+      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
 
         {/* Here the Category and Priority will be */}
         <Category setCategory={setCategory}/>
@@ -80,7 +92,7 @@ function Add() {
               To-Do
               <textarea
                 name="text"
-                value={thisData.toDo}
+                value={thisData.text}
                 placeholder="Type your to-do here ..."
                 onChange={handleChange}
               ></textarea>

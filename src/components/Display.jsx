@@ -14,7 +14,7 @@ function Display() {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editText, setEditText] = useState("");
 
-  const [sort, setSort] = useState("New");
+  const [sort, setSort] = useState("new");
 
 
   // Toggle task completion
@@ -64,17 +64,35 @@ const startEditing = (taskId, text) => {
     return true;
   });
 
-  // NL Sorting function
-  // const sortedTasks = [...data].sort((a, b) => {
-  //   if (sort === "Important") {
-  //     if (a.priority === "Important" && b.priority !== "Important") return -1;
-  //     if (a.priority !== "Important" && b.priority === "Important") return 1;
-  //   }
-  //   if (sort === "Latest") {
-  //     return new Date(b.timestamp) - new Date(a.timestamp);
-  //   }
-  //   return 0;
-  // });
+
+  const priorityColor = (priority) => {
+    switch (priority) {
+      case 'important':
+        return { backgroundColor: 'lightcoral' };
+      case 'medium':
+        return { backgroundColor: "#FFFED3" };
+      case 'low':
+        return { backgroundColor: 'lightgreen' };
+      default:
+        return { backgroundColor: '' };
+    }
+  };
+
+
+  // NL: Sorting function, based on filtering option as only actual tasks should be sorted
+
+  const sortedTasks = [...filteredTasks];
+
+  if (sort === "important") {
+    sortedTasks.sort((a, b) => {
+      const priorityOrder = { important: 1, medium: 2, low: 3 };
+      return (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4);
+    });
+  } else if (sort === "new") {
+    sortedTasks.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)); 
+  } else if (sort === "latest") {
+    sortedTasks.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)); 
+  }
 
 
 
@@ -88,14 +106,15 @@ const startEditing = (taskId, text) => {
     {/* Filter Component */}
     <Filter setFilter={setFilter} />
 
-   {/* NL Sorting list Dropdown */}
+   {/* NL: Sorting list Dropdown */}
     <Sort setSort={setSort}/>
     </div>
     
     {/* To-Do List */}
+    {/*NL: I have changed filteredTasks for sortedTasks as it contains filtered tasks already */}
     <div className="todo-list">
-        {filteredTasks.map((task) => (
-          <div key={task.id} className={`todo-item ${task.completed ? "completed" : ""}`}>
+        {sortedTasks.map((task) => (
+          <div key={task.id} className={`todo-item ${task.completed ? "completed" : ""}`} style={priorityColor(task.priority)} >
 
  
             
@@ -116,7 +135,7 @@ const startEditing = (taskId, text) => {
                   className="edit-input"
                 />
               ) : (
-                <span>{task.text}</span>
+                <span>{task.text} <strong>({task.priority})</strong></span>
               )}
             </div>
 
