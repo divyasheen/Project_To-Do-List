@@ -121,12 +121,13 @@ function Display() {
     <div className="todo-container">
 
       <div className="menu">
+        
+        {/* Filter Component */}
+        <Filter setFilter={setFilter} />
+
         <button>
           <NavLink to="/add">Add</NavLink>
         </button>
-
-        {/* Filter Component */}
-        <Filter setFilter={setFilter} />
 
         {/* Sorting Component */}
         <Sort setSort={setSort} />
@@ -143,7 +144,6 @@ function Display() {
                 checked={tasks.every((task) => task.completed)}
                 onChange={() => toggleCategoryCompletion(category)}
               />
-
 
               <h3>{category}</h3>
 
@@ -166,8 +166,8 @@ function Display() {
                   {/* Edit Mode: Show Input Field */}
                   {editingTaskId === task.id ? (
                     <>
-                    <input
-                      type="text"
+                    <div className="editMenu">
+                    <textarea
                       value={editText}
                       onChange={handleEditChange}
                       className="edit-input"
@@ -178,6 +178,7 @@ function Display() {
                       onChange={handleTimestampChange} 
                       className="edit-date"
                     />
+                    </div>
                   </>
                   ) : (
                     <span>
@@ -193,13 +194,13 @@ function Display() {
                 <div className="task-buttons">
                   {editingTaskId === task.id ? (
                     <>
-                      <button className="save-btn" onClick={saveEdit}>💾 Save</button>
-                      <button className="cancel-btn" onClick={cancelEdit}>❌ Cancel</button>
+                      <button className="save-btn" onClick={saveEdit}>Save</button>
+                      <button className="cancel-btn" onClick={cancelEdit}>Cancel</button>
                     </>
                   ) : (
                     <>
-                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text)}>✏️ Edit</button>
-                      <button className="delete-btn" onClick={() => deleteTask(task.id)}>🗑️ Delete</button>
+                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text)}>Edit</button>
+                      <button className="delete-btn" onClick={() => deleteTask(task.id)}>Delete</button>
                     </>
                   )}
                 </div>
