@@ -32,11 +32,26 @@ function Add() {
 
 //NL: girls, could you consider adding indiv. id. (Date.now()) instead of data.length to tasks, coz I receive error?
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const newTask = {
-    ...thisData,
-    id: Date.now()
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Assign ID before setting data
+    const newTask = { ...thisData, id: Date.now() };
+
+    setData((prevData) => [...prevData, newTask]); // Ensure previous data is retained
+
+    setThisData({
+      id: null,
+      heading: "",
+      text: "",
+      completed: false,
+      timestamp: "",
+      priority: "",
+    });
+
+    navigate("/");
+
+    console.log("Updated Data:", newTask); // Ensure correct data structure
+
   };
   setData([...data, newTask]); 
   navigate("/");
@@ -92,7 +107,9 @@ const handleSubmit = (e) => {
               To-Do
               <textarea
                 name="text"
+
                 value={thisData.text}
+
                 placeholder="Type your to-do here ..."
                 onChange={handleChange}
               ></textarea>
