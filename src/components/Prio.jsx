@@ -2,7 +2,7 @@ import React from "react";
 
 function Prio({ setPrior }) {
   return (
-    <div>
+    <div className="selectPrio">
       <select onChange={(e) => setPrior(e.target.value)}>
         <option value="">Prioritize:</option>
         <option value="important"> Important 🍅</option>

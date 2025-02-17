@@ -5,7 +5,6 @@ import Prio from "./Prio";
 import Category from "./Category";
 import "./Add.css";
 
-
 function Add() {
   const { data, setData } = useContext(FormContext);
   const [thisData, setThisData] = useState({
@@ -43,8 +42,6 @@ function Add() {
     console.log("Updated Data:", newTask); //DS Ensure correct data structure
 
   };
- 
-
 
   console.log(thisData);
 
@@ -65,17 +62,20 @@ function Add() {
         return { backgroundColor: "" };
     }
   };
+
   return (
     <>
       <div className="addContainer">
       <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
 
         {/* Here the Category and Priority will be */}
+<div className="selectComp">
         <Category 
           setCategory={(category) => setThisData({ ...thisData, category })} 
           value={thisData.category} // Ensure category selection is reflected
         />
         <Prio setPrior={setPrior}/>
+          </div>
 
           <div className="formInput">
 
@@ -91,6 +91,17 @@ function Add() {
               ></textarea>
             </label>
 
+          <label>
+            To-Do
+            <textarea
+              name="text"
+              value={thisData.text}
+              placeholder="Type your to-do here ..."
+              onChange={handleChange}
+            ></textarea>
+          </label>
+
+          <div className="lastRow">
             <label>
               Due Date:
               <input
