@@ -92,17 +92,6 @@ function Add() {
 
 
           <div className="formInput">
-
-            <label>
-              To-Do
-              <textarea
-                name="text"
-                value={thisData.text}
-                placeholder="Type your to-do here ..."
-                onChange={handleChange}
-              ></textarea>
-            </label>
-
           <label>
             To-Do
             <textarea
@@ -124,6 +113,7 @@ function Add() {
               />
             </label>
             <button>Save</button>
+            </div>
           </div>
         </form>
       </div>
