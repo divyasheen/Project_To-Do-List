@@ -144,7 +144,9 @@ function Display() {
                 onChange={() => toggleCategoryCompletion(category)}
               />
 
+
               <h3>{category}</h3>
+
             </div>
 
             {tasks.map((task) => (
@@ -211,3 +213,4 @@ function Display() {
 }
 
 export default Display;
+

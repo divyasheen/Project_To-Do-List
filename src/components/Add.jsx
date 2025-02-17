@@ -18,28 +18,39 @@ function Add() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setThisData({ ...thisData, [e.target.name]: e.target.value });
+    setThisData({
+      ...thisData,
+      [e.target.name]:e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Assign ID before setting data
-    const newTask = { ...thisData, id: Date.now() };
 
-    setData((prevData) => [...prevData, newTask]); //DS Ensure previous data is retained
+    // Assign ID before setting data
+    const newTask = {
+      ...thisData,
+      id: Date.now(),
+      timestamp: new Date().toISOString(), ///NL: stores full timeform for sorting
+    };
+
+
+    setData((prevData) => [...prevData, newTask]); //DS Ensure previous data i
 
     setThisData({
       id: null,
       category: "",
       text: "",
       completed: false,
-      timestamp: "",
+      timestamp: new Date().toISOString().slice(0,10),
       priority: "",
     });
 
     navigate("/");
 
+
     console.log("Updated Data:", newTask); //DS Ensure correct data structure
+
 
   };
 
@@ -63,9 +74,11 @@ function Add() {
     }
   };
 
+
   return (
     <>
       <div className="addContainer">
+
       <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
 
         {/* Here the Category and Priority will be */}
@@ -77,15 +90,14 @@ function Add() {
         <Prio setPrior={setPrior}/>
           </div>
 
+
           <div className="formInput">
 
             <label>
               To-Do
               <textarea
                 name="text"
-
                 value={thisData.text}
-
                 placeholder="Type your to-do here ..."
                 onChange={handleChange}
               ></textarea>
