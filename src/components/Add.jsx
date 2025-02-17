@@ -25,7 +25,7 @@ function Add() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Assign ID before setting data
-    const newTask = { ...thisData, id: data.length };
+    const newTask = { ...thisData, id: Date.now() };
 
     setData((prevData) => [...prevData, newTask]); // Ensure previous data is retained
 
@@ -42,6 +42,11 @@ function Add() {
 
     console.log("Updated Data:", newTask); // Ensure correct data structure
   };
+  setData([...data, newTask]); 
+  navigate("/");
+};
+
+
 
   console.log(thisData);
 
@@ -55,7 +60,7 @@ function Add() {
       case "important":
         return { backgroundColor: "lightcoral" };
       case "medium":
-        return { backgroundColor: "yellow" };
+        return { backgroundColor: "#FFFED3" };
       case "low":
         return { backgroundColor: "lightgreen" };
       default:
@@ -64,10 +69,12 @@ function Add() {
   };
   const [category, setCategory] = useState();
 
+
+
   return (
     <>
       <div className="addContainer">
-      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
+      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
 
         {/* Here the Category and Priority will be */}
         <Category setCategory={setCategory}/>
@@ -89,7 +96,9 @@ function Add() {
               To-Do
               <textarea
                 name="text"
-                value={thisData.text} // Fixed issue: use `text` instead of `toDo`
+
+                value={thisData.text}
+
                 placeholder="Type your to-do here ..."
                 onChange={handleChange}
               ></textarea>
@@ -110,6 +119,6 @@ function Add() {
       </div>
     </>
   );
-}
+
 
 export default Add;
