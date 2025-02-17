@@ -134,8 +134,7 @@ const startEditing = (taskId, text) => {
                   className="edit-input"
                 />
               ) : (
-
-                <span>{task.text <strong>({task.priority})</strong> || "No text available"} </span> // Fixed issue: Ensure `task.text` is not undefined
+                <span>{task.text  || "No text available"} <strong>({task.priority})</strong></span> 
               )}
             </div>
 

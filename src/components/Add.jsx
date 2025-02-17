@@ -45,7 +45,6 @@ function Add() {
   };
   setData([...data, newTask]); 
   navigate("/");
-};
 
 
 
