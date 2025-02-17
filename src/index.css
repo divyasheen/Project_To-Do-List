@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+
+  /* Variables */
+  --main-font: "Amatic SC", serif;
+  --main-font-size: 1.7rem;
+}
+
+body{
+    background: #fffed3af;
+  }
+
+button {
+  padding: 8px 12px;
+  max-width: 102px;
+
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #967cca;
+
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
+  color: black;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+select {
+  background-color: #ffe9d0;
+
+  max-width: 225px;
+  margin-bottom: 20px;
+  padding: 0.25rem;
+
+  border-radius: 100px;
+
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
+
+  option {
+    font-size: 16px;
+  }
+}
