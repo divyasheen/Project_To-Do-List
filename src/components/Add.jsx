@@ -41,10 +41,10 @@ function Add() {
     navigate("/");
 
     console.log("Updated Data:", newTask); // Ensure correct data structure
+
   };
   setData([...data, newTask]); 
   navigate("/");
-};
 
 
 
@@ -119,6 +119,6 @@ function Add() {
       </div>
     </>
   );
-
+}
 
 export default Add;
