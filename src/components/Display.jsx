@@ -193,13 +193,13 @@ function Display() {
                 <div className="task-buttons">
                   {editingTaskId === task.id ? (
                     <>
-                      <button className="save-btn" onClick={saveEdit}>💾 Save</button>
-                      <button className="cancel-btn" onClick={cancelEdit}>❌ Cancel</button>
+                      <button className="save-btn" onClick={saveEdit}>Save</button>
+                      <button className="cancel-btn" onClick={cancelEdit}>❌</button>
                     </>
                   ) : (
                     <>
-                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text)}>✏️ Edit</button>
-                      <button className="delete-btn" onClick={() => deleteTask(task.id)}>🗑️ Delete</button>
+                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text)}> Edit</button>
+                      <button className="delete-btn" onClick={() => deleteTask(task.id)}>Delete</button>
                     </>
                   )}
                 </div>
