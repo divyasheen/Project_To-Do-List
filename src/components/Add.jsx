@@ -10,7 +10,7 @@ function Add() {
   const { data, setData } = useContext(FormContext);
   const [thisData, setThisData] = useState({
     id: null,
-    heading: "",
+    category: "", //DS Replacing heading with category
     text: "",
     completed: false,
     timestamp: "",
@@ -27,11 +27,11 @@ function Add() {
     // Assign ID before setting data
     const newTask = { ...thisData, id: Date.now() };
 
-    setData((prevData) => [...prevData, newTask]); // Ensure previous data is retained
+    setData((prevData) => [...prevData, newTask]); //DS Ensure previous data is retained
 
     setThisData({
       id: null,
-      heading: "",
+      category: "",
       text: "",
       completed: false,
       timestamp: "",
@@ -40,12 +40,10 @@ function Add() {
 
     navigate("/");
 
-    console.log("Updated Data:", newTask); // Ensure correct data structure
+    console.log("Updated Data:", newTask); //DS Ensure correct data structure
 
   };
-  setData([...data, newTask]); 
-  navigate("/");
-
+ 
 
 
   console.log(thisData);
@@ -67,30 +65,19 @@ function Add() {
         return { backgroundColor: "" };
     }
   };
-  const [category, setCategory] = useState();
-
-
-
   return (
     <>
       <div className="addContainer">
       <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
 
         {/* Here the Category and Priority will be */}
-        <Category setCategory={setCategory}/>
+        <Category 
+          setCategory={(category) => setThisData({ ...thisData, category })} 
+          value={thisData.category} // Ensure category selection is reflected
+        />
         <Prio setPrior={setPrior}/>
 
           <div className="formInput">
-            <label>
-              Heading
-              <input
-                type="text"
-                name="heading"
-                value={thisData.heading}
-                placeholder="Type your heading here ... "
-                onChange={handleChange}
-              />
-            </label>
 
             <label>
               To-Do
