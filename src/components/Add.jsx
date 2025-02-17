@@ -22,16 +22,6 @@ function Add() {
     setThisData({ ...thisData, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setThisData({ ...thisData, id: data.length});
-  //   setData([...data, thisData]);
-  //   navigate("/");
-  //   console.log(data);
-  // };
-
-//NL: girls, could you consider adding indiv. id. (Date.now()) instead of data.length to tasks, coz I receive error?
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Assign ID before setting data
@@ -55,7 +45,6 @@ function Add() {
   };
   setData([...data, newTask]); 
   navigate("/");
-};
 
 
 
