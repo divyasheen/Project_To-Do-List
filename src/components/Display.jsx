@@ -119,6 +119,7 @@ function Display() {
 
   return (
     <div className="todo-container">
+
       <div className="menu">
         <button>
           <NavLink to="/add">Add</NavLink>
@@ -142,7 +143,10 @@ function Display() {
                 checked={tasks.every((task) => task.completed)}
                 onChange={() => toggleCategoryCompletion(category)}
               />
+
+
               <h3>{category}</h3>
+
             </div>
 
             {tasks.map((task) => (
@@ -209,3 +213,4 @@ function Display() {
 }
 
 export default Display;
+
