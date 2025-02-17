@@ -88,8 +88,8 @@ function Add() {
               Due Date:
               <input
                 type="date"
-                name="dueDate"
-                value={thisData.dueDate}
+                name="timestamp"
+                value={thisData.timestamp}
                 onChange={handleChange}
               />
             </label>
