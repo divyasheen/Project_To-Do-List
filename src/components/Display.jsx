@@ -82,7 +82,6 @@ const startEditing = (taskId, text) => {
     <div className="todo-container">
     <div className = "menu">
       <button><NavLink to="/add">Add</NavLink> </button>
-        <Category />
       
 
     {/* Filter Component */}
@@ -116,7 +115,7 @@ const startEditing = (taskId, text) => {
                   className="edit-input"
                 />
               ) : (
-                <span>{task.text}</span>
+                <span>{task.text || "No text available"}</span> // Fixed issue: Ensure `task.text` is not undefined
               )}
             </div>
 

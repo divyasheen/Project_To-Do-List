@@ -24,10 +24,23 @@ function Add() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setThisData({ ...thisData, id: data.length });
-    setData([...data, thisData]);
+    // Assign ID before setting data
+    const newTask = { ...thisData, id: data.length };
+
+    setData((prevData) => [...prevData, newTask]); // Ensure previous data is retained
+
+    setThisData({
+      id: null,
+      heading: "",
+      text: "",
+      completed: false,
+      timestamp: "",
+      priority: "",
+    });
+
     navigate("/");
-    console.log(data);
+
+    console.log("Updated Data:", newTask); // Ensure correct data structure
   };
 
   console.log(thisData);
@@ -76,7 +89,7 @@ function Add() {
               To-Do
               <textarea
                 name="text"
-                value={thisData.toDo}
+                value={thisData.text} // Fixed issue: use `text` instead of `toDo`
                 placeholder="Type your to-do here ..."
                 onChange={handleChange}
               ></textarea>
