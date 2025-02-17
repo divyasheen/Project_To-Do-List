@@ -100,7 +100,6 @@ const startEditing = (taskId, text) => {
     <div className="todo-container">
     <div className = "menu">
       <button><NavLink to="/add">Add</NavLink> </button>
-      
 
     {/* Filter Component */}
     <Filter setFilter={setFilter} />

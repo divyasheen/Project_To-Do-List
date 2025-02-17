@@ -5,7 +5,6 @@ import Prio from "./Prio";
 import Category from "./Category";
 import "./Add.css";
 
-
 function Add() {
   const { data, setData } = useContext(FormContext);
   const [thisData, setThisData] = useState({
@@ -41,11 +40,7 @@ function Add() {
     navigate("/");
 
     console.log("Updated Data:", newTask); // Ensure correct data structure
-
   };
-
-
-
 
   console.log(thisData);
 
@@ -68,41 +63,27 @@ function Add() {
   };
   const [category, setCategory] = useState();
 
-
-
   return (
     <>
       <div className="addContainer">
-      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
+        <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
+          
+          <div className="selectComp">
+            <Category setCategory={setCategory} />
+            <Prio setPrior={setPrior} />
+          </div>
 
-        {/* Here the Category and Priority will be */}
-        <Category setCategory={setCategory}/>
-        <Prio setPrior={setPrior}/>
+          <label>
+            To-Do
+            <textarea
+              name="text"
+              value={thisData.text}
+              placeholder="Type your to-do here ..."
+              onChange={handleChange}
+            ></textarea>
+          </label>
 
-          <div className="formInput">
-            <label>
-              Heading
-              <input
-                type="text"
-                name="heading"
-                value={thisData.heading}
-                placeholder="Type your heading here ... "
-                onChange={handleChange}
-              />
-            </label>
-
-            <label>
-              To-Do
-              <textarea
-                name="text"
-
-                value={thisData.text}
-
-                placeholder="Type your to-do here ..."
-                onChange={handleChange}
-              ></textarea>
-            </label>
-
+          <div className="lastRow">
             <label>
               Due Date:
               <input
