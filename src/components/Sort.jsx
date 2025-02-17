@@ -7,7 +7,7 @@ function Sort({setSort}) {
         <option value="">Sort:</option>
       <option value="important">Important first</option>
       <option value="new">New first</option>
-      <option value="latest">Latest first</option>
+      <option value="latest">Old first</option>
     </select>
   )
 }
