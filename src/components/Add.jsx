@@ -5,7 +5,6 @@ import Prio from "./Prio";
 import Category from "./Category";
 import "./Add.css";
 
-
 function Add() {
   const { data, setData } = useContext(FormContext);
   const [thisData, setThisData] = useState({
@@ -19,34 +18,39 @@ function Add() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setThisData({ ...thisData, [e.target.name]: e.target.value });
+    setThisData({
+      ...thisData,
+      [e.target.name]:e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     // Assign ID before setting data
-    const newTask = { ...thisData, id: Date.now() };
+    const newTask = {
+      ...thisData,
+      id: Date.now(),
+      timestamp: new Date().toISOString(), ///NL: stores full timeform for sorting
+    };
 
     setData((prevData) => [...prevData, newTask]); // Ensure previous data is retained
+    
 
     setThisData({
       id: null,
       heading: "",
       text: "",
       completed: false,
-      timestamp: "",
+      timestamp: new Date().toISOString().slice(0,10),
       priority: "",
     });
 
     navigate("/");
-
+ 
     console.log("Updated Data:", newTask); // Ensure correct data structure
-
+ 
   };
-  setData([...data, newTask]); 
-  navigate("/");
-
-
 
   console.log(thisData);
 
@@ -69,16 +73,13 @@ function Add() {
   };
   const [category, setCategory] = useState();
 
-
-
   return (
     <>
       <div className="addContainer">
-      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
-
-        {/* Here the Category and Priority will be */}
-        <Category setCategory={setCategory}/>
-        <Prio setPrior={setPrior}/>
+        <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
+          {/* Here the Category and Priority will be */}
+          <Category setCategory={setCategory} />
+          <Prio setPrior={setPrior} />
 
           <div className="formInput">
             <label>
@@ -96,9 +97,7 @@ function Add() {
               To-Do
               <textarea
                 name="text"
-
                 value={thisData.text}
-
                 placeholder="Type your to-do here ..."
                 onChange={handleChange}
               ></textarea>
