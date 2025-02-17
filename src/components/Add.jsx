@@ -43,8 +43,7 @@ function Add() {
     console.log("Updated Data:", newTask); // Ensure correct data structure
 
   };
-  setData([...data, newTask]); 
-  navigate("/");
+
 
 
 
@@ -108,8 +107,8 @@ function Add() {
               Due Date:
               <input
                 type="date"
-                name="timestamp"
-                value={thisData.timestamp}
+                name="dueDate"
+                value={thisData.dueDate}
                 onChange={handleChange}
               />
             </label>
