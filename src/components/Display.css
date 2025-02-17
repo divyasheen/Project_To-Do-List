@@ -17,19 +17,16 @@ body{
     padding: 1rem;
 
     button {
-      width: 100px;
-      background-color: #FFFED3;
+      width: 102px;
+      background-color: #FFE9D0;
+    }
+
+    button:hover {
+      background-color: #FFD3B6;
     }
 }
  
   h1 {
-    margin-bottom: 20px;
-  }
-  
-  select {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
     margin-bottom: 20px;
   }
   
@@ -46,7 +43,7 @@ body{
   .todo-item {
     display: flex;
     flex-direction: column;
-    background: #FFE9D0;
+    background: #B1AFFF;
     padding: 15px;
     margin: 0 auto;
     border-radius: 12px;
@@ -100,11 +97,22 @@ body{
   /* Buttons */
   .delete-btn {
     background:  #BBE9FF;
-    color: #8684c9;
+    color: black;
+  }
+
+  .delete-btn:hover {
+    background: #7cd4fa
   }
   
-  .edit-btn {
-    background: #B1AFFF;
+  .edit-btn, .cancel-btn, .save-btn {
+    background: #736ef5;
     color: white;
   }
+
+  .edit-btn:hover, .save-btn:hover , .cancel-btn:hover {
+    background: #4d4af0;
+  }
   
+  .cancel-btn {
+    font-size: 1.59rem;
+  }

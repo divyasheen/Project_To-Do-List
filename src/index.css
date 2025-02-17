@@ -18,11 +18,20 @@ button {
   max-width: 102px;
   font-family: var(--main-font);
   font-size: var(--main-font-size);
+  color: black;
+  box-shadow: 2px 2px 2px #967cca;
 }
 
 select {
-  border: 2px solid green;
-  background-color: #fffed3b9;
-
+  background-color: #ffe9d0;
+  max-width: 225px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  padding: 0.25rem;
   font-family: var(--main-font);
+  font-size: var(--main-font-size);
+
+  option {
+    font-size: 16px;
+  }
 }
