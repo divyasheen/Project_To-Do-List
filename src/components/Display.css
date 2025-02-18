@@ -17,7 +17,20 @@
 
 .menu button {
   margin: 0 auto;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
+}
+
+/*NL: Layout and style for Go Up button*/
+.GoUp-box {
+  position: relative;
+}
+
+.GoUp-button {
+  margin-bottom: 2.5rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
 }
 
 /*Grid Layout for To-Do List */
@@ -121,7 +134,7 @@
 /* Buttons */
 button {
   width: 102px;
-  background-color: #FFE9D0;
+  background-color: #ffe9d0;
 }
 
 button:hover {
