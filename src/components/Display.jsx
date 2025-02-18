@@ -43,10 +43,10 @@ function Display() {
   };
 
   // Enable Edit Mode
-  const startEditing = (taskId, text) => {
+  const startEditing = (taskId, text, timestamp) => {
     setEditingTaskId(taskId);
     setEditText(text);
-    setEditTimestamp(timestamp || "");
+    setEditTimestamp(timestamp || ""); // Ensure existing timestamp is used
   };
 
   // Handle Input Change
@@ -63,7 +63,11 @@ function Display() {
     setData((prevTasks) =>
       prevTasks.map((task) =>
         task.id === editingTaskId
-          ? { ...task, text: editText, timestamp: editTimestamp } //  Save updated due date
+          ? { 
+              ...task, 
+              text: editText, 
+              timestamp: editTimestamp === "" ? null : editTimestamp // Allow clearing the due date
+            }
           : task
       )
     );
@@ -71,6 +75,8 @@ function Display() {
     setEditText("");
     setEditTimestamp(""); // Reset timestamp state
   };
+  
+  
 
   // Cancel Editing
   const cancelEdit = () => {
@@ -122,9 +128,8 @@ function Display() {
   }, {});
 
   return (
-    <div className="todo-container">
+    <div className="todo-container GoUp-box" id="top">
       <div className="menu">
-        
         {/* Filter Component */}
         <Filter setFilter={setFilter} />
 
@@ -142,14 +147,13 @@ function Display() {
           <div key={category} className="category-group">
             {/* Category Heading with Checkbox */}
             <div className="category-header">
-              
               <input
                 type="checkbox"
                 checked={tasks.every((task) => task.completed)}
                 onChange={() => toggleCategoryCompletion(category)}
               />
 
-              <h3>{category}</h3>
+              <h3>{category || "Others"}</h3>
             </div>
 
             {tasks.map((task) => (
@@ -169,20 +173,20 @@ function Display() {
                   {/* Edit Mode: Show Input Field */}
                   {editingTaskId === task.id ? (
                     <>
-                    <div className="editMenu">
-                    <textarea
-                      value={editText}
-                      onChange={handleEditChange}
-                      className="edit-input"
-                    />
-                    <input
-                      type="date"
-                      value={editTimestamp}
-                      onChange={handleTimestampChange} 
-                      className="edit-date"
-                    />
-                    </div>
-                  </>
+                      <div className="editMenu">
+                        <textarea
+                          value={editText}
+                          onChange={handleEditChange}
+                          className="edit-input"
+                        />
+                        <input
+                          type="date"
+                          value={editTimestamp}
+                          onChange={handleTimestampChange}
+                          className="edit-date"
+                        />
+                      </div>
+                    </>
                   ) : (
                     <span>
                       {task.priority ? 
@@ -195,19 +199,23 @@ function Display() {
 
                 {/* Timestamp */}
                 <span className="timestamp">
-                  Due: {task.timestamp || "No Date"}
+                ⏳ Due: {task.timestamp ? task.timestamp : "No Date"}
                 </span>
 
                 {/* Task Actions */}
                 <div className="task-buttons">
                   {editingTaskId === task.id ? (
                     <>
-                      <button className="save-btn" onClick={saveEdit}>Save</button>
-                      <button className="cancel-btn" onClick={cancelEdit}>❌</button>
+                      <button className="save-btn" onClick={saveEdit}>
+                        Save
+                      </button>
+                      <button className="cancel-btn" onClick={cancelEdit}>
+                        ❌
+                      </button>
                     </>
                   ) : (
                     <>
-                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text)}> Edit</button>
+                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text, task.timestamp)}>Edit</button>
                       <button className="delete-btn" onClick={() => deleteTask(task.id)}>Delete</button>
                     </>
                   )}
@@ -216,6 +224,12 @@ function Display() {
             ))}
           </div>
         ))}
+      </div>
+
+      <div>
+        <a href="#top">
+          <button className="GoUp-button">Go up</button>
+        </a>
       </div>
     </div>
   );
