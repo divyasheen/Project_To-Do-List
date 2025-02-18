@@ -5,6 +5,10 @@
   margin-top: 6rem;
   border-radius: 100px;
   text-align: center;
+
+  border: 5px solid #bbe9ffc2;
+  outline: 5px solid #ceecfa;
+  box-shadow: 0 0 0 10px #e0f3fc, 0 0 0 15px #f9fbfc;
 }
 
 .menu {
@@ -93,6 +97,10 @@
   width: 100%;
   gap: 10px;
   font-size: 1.5rem;
+
+  .prio-text {
+    font-size: 1rem;
+  }
 }
 
 /* Checkbox & Text */
@@ -118,6 +126,7 @@
 /* Button Container */
 .task-buttons {
   display: flex;
+  justify-content: space-around;
   gap: 10px;
   margin-top: 10px;
 }
@@ -160,25 +169,25 @@ button:hover {
 
 .editMenu {
   display: grid;
-  gap: 1rem;
-  margin: 1rem;
-  width: 80%;
+    gap: 1rem;
+    margin: 1rem;
+    width: 80%;
 
-  textarea {
-    width: 100%;
-    height: 100px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0.5rem;
-  }
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-family: Arial, Helvetica, sans-serif;
+      paddinG: .5rem;
+    }
 
-  input {
-    border: 2px solid red;
-    width: 190px;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0.3rem;
-  }
+    input {
+      width: 180px;
+      margin: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: .3rem;
+    }
 }
+
 
 @media screen and (min-width: 652px) {
   .menu {
@@ -186,5 +195,8 @@ button:hover {
     justify-content: space-evenly;
     align-items: flex-start;
     padding: 1rem;
+
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }

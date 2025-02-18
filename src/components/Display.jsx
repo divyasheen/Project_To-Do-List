@@ -43,10 +43,10 @@ function Display() {
   };
 
   // Enable Edit Mode
-  const startEditing = (taskId, text) => {
+  const startEditing = (taskId, text, timestamp) => {
     setEditingTaskId(taskId);
     setEditText(text);
-    setEditTimestamp(timestamp || "");
+    setEditTimestamp(timestamp || ""); // Ensure existing timestamp is used
   };
 
   // Handle Input Change
@@ -63,7 +63,11 @@ function Display() {
     setData((prevTasks) =>
       prevTasks.map((task) =>
         task.id === editingTaskId
-          ? { ...task, text: editText, timestamp: editTimestamp } //  Save updated due date
+          ? { 
+              ...task, 
+              text: editText, 
+              timestamp: editTimestamp === "" ? null : editTimestamp // Allow clearing the due date
+            }
           : task
       )
     );
@@ -71,6 +75,8 @@ function Display() {
     setEditText("");
     setEditTimestamp(""); // Reset timestamp state
   };
+  
+  
 
   // Cancel Editing
   const cancelEdit = () => {
@@ -141,13 +147,14 @@ function Display() {
           <div key={category} className="category-group">
             {/* Category Heading with Checkbox */}
             <div className="category-header">
+
               <input
                 type="checkbox"
                 checked={tasks.every((task) => task.completed)}
                 onChange={() => toggleCategoryCompletion(category)}
               />
 
-              <h3>{category}</h3>
+              <h3>{category || "Others"}</h3>
             </div>
 
             {tasks.map((task) => (
@@ -183,17 +190,17 @@ function Display() {
                     </>
                   ) : (
                     <span>
-                      {task.priority ? (
-                        <strong>({task.priority})</strong>
-                      ) : null}{" "}
-                      {task.text}
+                      {task.priority ? 
+                        <span className = "prio-text">{task.priority}</span>
+                       : null}{" "}
+                      <strong>{task.text}</strong>
                     </span>
                   )}
                 </div>
 
                 {/* Timestamp */}
                 <span className="timestamp">
-                  Due: {task.timestamp || "No Date"}
+                ⏳ Due: {task.timestamp ? task.timestamp : "No Date"}
                 </span>
 
                 {/* Task Actions */}
@@ -209,19 +216,8 @@ function Display() {
                     </>
                   ) : (
                     <>
-                      <button
-                        className="edit-btn"
-                        onClick={() => startEditing(task.id, task.text)}
-                      >
-                        {" "}
-                        Edit
-                      </button>
-                      <button
-                        className="delete-btn"
-                        onClick={() => deleteTask(task.id)}
-                      >
-                        Delete
-                      </button>
+                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text, task.timestamp)}>Edit</button>
+                      <button className="delete-btn" onClick={() => deleteTask(task.id)}>Delete</button>
                     </>
                   )}
                 </div>

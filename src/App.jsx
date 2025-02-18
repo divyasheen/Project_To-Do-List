@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import InspoPhrase from "./components/InspoPhrase";
 import Logo from "./components/Logo";
 import Footer from "./components/Footer";
-
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
         <Route index element={<Display />} />
         <Route path="/" element={<Display />} />
         <Route path="/add" element={<Add />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer/>
