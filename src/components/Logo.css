@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
 
-  border: 5px solid #b1afff;
+ border: 5px solid #b1afff;
   outline: 5px solid #bbe9ff;
   box-shadow: 0 0 0 10px #e0f3fc, 0 0 0 15px #f9fbfc;
   border-radius: 100px;
@@ -13,10 +13,84 @@
   margin: 3rem auto;
   padding: 10px;
 
-  text-align: center;
-  font-size: 6rem;
-  font-family: "Amatic SC", serif;
-  font-weight: 700;
-  font-style: normal;
-  color: #d3ecf8ec;
+ overflow: hidden;
+  position: relative;
+
+  h1 {
+    text-align: center;
+    font-size: 6rem;
+    font-family: "Amatic SC", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #d3ecf8ec;
+  }
 }
+
+.logo img {
+  width: 100px;
+  position: absolute;
+  top: 125px;
+  left: 40px;
+  animation: catwalk 10s infinite;
+ }
+
+
+
+ @keyframes catwalk {
+  0% {
+    transform: translateY(0)
+  }
+  5% {
+    transform: translateY(-55px)
+  }
+  10% {
+    transform: translateY(0)
+  }
+  15% {
+    transform: translate(1000px, 0)
+  }
+  20% {
+    transform: translate(1000px, -55px)
+  }
+  25% {
+    transform: translate(1000px, 0)
+  } 
+  30% {
+    transform: translate(800px, 0)
+  }
+  35% {
+    transform: translate(800px, -55px)
+  }
+  40% {
+    transform: translate(800px, 0)
+  }
+  45% {
+    transform: translate(550px, 0)
+  }
+  50% {
+    transform: translate(550px, -55px)
+  }
+  55% {
+    transform: translate(550px, 0)
+  }
+  60% {
+    transform: translate(1150px, 0)
+  }
+  65% {
+    transform: translate(1150px, -55px)
+  }
+  70% {
+    transform: translate(1150px, 0)
+  }
+  75% {
+    transform: translate(200px, 0)
+  }
+  80% {
+    transform: translate(200px, -55px)
+  }
+  85% {
+    transform: translate(200px, 0)
+  }
+
+ }
+
