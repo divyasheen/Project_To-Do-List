@@ -2,11 +2,14 @@
   background: #bbe9ffb0;
 
   margin-top: 4rem;
-  height: 560px;
+  height: 100vh;
   padding-top: 1rem;
 
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
+  border-radius: 100px;
+
+  border: 5px solid #bbe9ffc2;
+  outline: 5px solid #ceecfa;
+  box-shadow: 0 0 0 10px #e0f3fc, 0 0 0 15px #f9fbfc;
 }
 
 form {
@@ -42,46 +45,66 @@ button {
 }
 
 .lastRow {
-  display: flex;
-  gap: 4rem;
-  justify-content: space-between;
+  input {
+    background-color: #ffe9d0;
 
-  label {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+    padding: 0.5rem;
+    max-width: 150px;
 
-    input {
-      background-color: #FFE9D0;
+    border-radius: 5px;
 
-      padding: 0.5rem;
-
-      border-radius: 5px;
-
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  }
-
-  button {
-    background-color: #FFE9D0;
-    width: 102px;
-    margin: .7rem 0;
-  }
-
-  button:hover {
-    background-color: #fdd1a0;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
-@media screen and (min-width: 652px) {
-  form {
-    width: 50%;
+button {
+  background-color: #ffe9d0;
+  width: 102px;
+  margin: 0.7rem 0;
+}
+
+button:hover {
+  background-color: #fdd1a0;
+}
+
+.go-back-btn {
+  background: #bbe9ff;
+}
+
+.go-back-btn:hover {
+  background: #7cd4fa;
+}
+
+@media screen and (min-width: 1200px) {
+  .add-buttons {
+    display: flex;
+    gap: 1rem;
   }
 
+  
+}
+
+@media screen and (min-width: 850px) {
   .selectComp {
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
+  }
+
+  form {
+    width: 50%;
+  }
+
+  .lastRow {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+
+    label {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
   }
 }

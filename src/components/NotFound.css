@@ -6,6 +6,10 @@
     border-radius: 100px;
     text-align: center;
 
+    border: 5px solid #bbe9ffc2;
+    outline: 5px solid #ceecfa;
+    box-shadow: 0 0 0 10px #e0f3fc, 0 0 0 15px #f9fbfc;
+
     h1 {
         font-family: var(--main-font);
         font-size: 10rem;

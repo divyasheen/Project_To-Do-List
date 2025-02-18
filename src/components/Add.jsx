@@ -13,7 +13,7 @@ function Add() {
     text: "",
     completed: false,
     timestamp: "",
-    sorttime:"",
+    sorttime: "",
     priority: "",
   });
   const navigate = useNavigate();
@@ -32,7 +32,6 @@ function Add() {
       alert("Please enter a to-do item.");
       return;
     }
-
 
     // Assign ID before setting data
     const newTask = {
@@ -92,29 +91,33 @@ function Add() {
           </div>
 
           <div className="formInput">
-
-          <label>
-            To-Do
-            <textarea
-              name="text"
-              value={thisData.text}
-              placeholder="Type your to-do here ..."
-              onChange={handleChange}
-              required
-            ></textarea>
-          </label>
-
-          <div className="lastRow">
             <label>
-              Due Date:
-              <input
-                type="date"
-                name="timestamp"
-                value={thisData.timestamp}
+              To-Do
+              <textarea
+                name="text"
+                value={thisData.text}
+                placeholder="Type your to-do here ..."
                 onChange={handleChange}
-              />
+                required
+              ></textarea>
             </label>
-            <button>Save</button>
+
+            <div className="lastRow">
+              <label>
+                Due Date:
+                <input
+                  type="date"
+                  name="timestamp"
+                  value={thisData.timestamp}
+                  onChange={handleChange}
+                />
+              </label>
+              <div className="add-buttons">
+              
+                <button>Save</button>
+                <button onClick={() => navigate("/")} className="go-back-btn">Go back</button>
+                
+              </div>
             </div>
           </div>
         </form>

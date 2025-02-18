@@ -185,10 +185,10 @@ function Display() {
                   </>
                   ) : (
                     <span>
-                      {task.priority ? (
-                        <strong>({task.priority})</strong>
-                      ) : null}{" "}
-                      {task.text}
+                      {task.priority ? 
+                        <p className = "">{task.priority}</p>
+                       : null}{" "}
+                      <strong>{task.text}</strong>
                     </span>
                   )}
                 </div>

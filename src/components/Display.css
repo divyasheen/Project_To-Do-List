@@ -5,6 +5,10 @@
   margin-top: 6rem;
   border-radius: 100px;
   text-align: center;
+
+  border: 5px solid #bbe9ffc2;
+  outline: 5px solid #ceecfa;
+  box-shadow: 0 0 0 10px #e0f3fc, 0 0 0 15px #f9fbfc;
 }
 
 .menu {
@@ -159,7 +163,6 @@ button:hover {
   }
 
   input {
-    border: 2px solid red;
     width: 190px;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
@@ -173,5 +176,8 @@ button:hover {
     justify-content: space-evenly;
     align-items: flex-start;
     padding: 1rem;
+
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
