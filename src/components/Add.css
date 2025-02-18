@@ -52,7 +52,7 @@ button {
     align-items: center;
 
     input {
-      background-color: #ffe9d0;
+      background-color: #FFE9D0;
 
       padding: 0.5rem;
 
@@ -63,16 +63,17 @@ button {
   }
 
   button {
-    background-color: #ffe9d0;
+    background-color: #FFE9D0;
     width: 102px;
+    margin: .7rem 0;
   }
 
   button:hover {
-    background-color: #ffd3b5;
+    background-color: #fdd1a0;
   }
 }
 
-@media screen and (min-width: 940px) {
+@media screen and (min-width: 652px) {
   form {
     width: 50%;
   }
