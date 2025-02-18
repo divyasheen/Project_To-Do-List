@@ -13,6 +13,7 @@ function Add() {
     text: "",
     completed: false,
     timestamp: "",
+    sorttime:"",
     priority: "",
   });
   const navigate = useNavigate();
@@ -26,12 +27,18 @@ function Add() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Check if text is empty
+    if (!thisData.text.trim()) {
+      alert("Please enter a to-do item.");
+      return;
+    }
+
 
     // Assign ID before setting data
     const newTask = {
       ...thisData,
       id: Date.now(),
-      timestamp: new Date().toISOString(), ///NL: stores full timeform for sorting
+      sorttime: new Date().toISOString(), ///NL: stores full timeform for sorting
     };
 
     setData((prevData) => [...prevData, newTask]); //DS Ensure previous data i
@@ -41,7 +48,8 @@ function Add() {
       category: "",
       text: "",
       completed: false,
-      timestamp: new Date().toISOString().slice(0, 10),
+      timestamp: thisData.length,
+      sorttime: new Date().toISOString(),
       priority: "",
     });
 
@@ -84,27 +92,29 @@ function Add() {
           </div>
 
           <div className="formInput">
-            <label>
-              To-Do
-              <textarea
-                name="text"
-                value={thisData.text}
-                placeholder="Type your to-do here ..."
-                onChange={handleChange}
-              ></textarea>
-            </label>
 
-            <div className="lastRow">
-              <label>
-                Due Date:
-                <input
-                  type="date"
-                  name="timestamp"
-                  value={thisData.timestamp}
-                  onChange={handleChange}
-                />
-              </label>
-              <button>Save</button>
+          <label>
+            To-Do
+            <textarea
+              name="text"
+              value={thisData.text}
+              placeholder="Type your to-do here ..."
+              onChange={handleChange}
+              required
+            ></textarea>
+          </label>
+
+          <div className="lastRow">
+            <label>
+              Due Date:
+              <input
+                type="date"
+                name="timestamp"
+                value={thisData.timestamp}
+                onChange={handleChange}
+              />
+            </label>
+            <button>Save</button>
             </div>
           </div>
         </form>
