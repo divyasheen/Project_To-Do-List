@@ -128,9 +128,8 @@ function Display() {
   }, {});
 
   return (
-    <div className="todo-container">
+    <div className="todo-container GoUp-box" id="top">
       <div className="menu">
-        
         {/* Filter Component */}
         <Filter setFilter={setFilter} />
 
@@ -175,26 +174,26 @@ function Display() {
                   {/* Edit Mode: Show Input Field */}
                   {editingTaskId === task.id ? (
                     <>
-                    <div className="editMenu">
-                    <textarea
-                      value={editText}
-                      onChange={handleEditChange}
-                      className="edit-input"
-                    />
-                    <input
-                      type="date"
-                      value={editTimestamp}
-                      onChange={handleTimestampChange} 
-                      className="edit-date"
-                    />
-                    </div>
-                  </>
+                      <div className="editMenu">
+                        <textarea
+                          value={editText}
+                          onChange={handleEditChange}
+                          className="edit-input"
+                        />
+                        <input
+                          type="date"
+                          value={editTimestamp}
+                          onChange={handleTimestampChange}
+                          className="edit-date"
+                        />
+                      </div>
+                    </>
                   ) : (
                     <span>
-                      {task.priority ? (
-                        <strong>({task.priority})</strong>
-                      ) : null}{" "}
-                      {task.text}
+                      {task.priority ? 
+                        <span className = "prio-text">{task.priority}</span>
+                       : null}{" "}
+                      <strong>{task.text}</strong>
                     </span>
                   )}
                 </div>
@@ -208,8 +207,12 @@ function Display() {
                 <div className="task-buttons">
                   {editingTaskId === task.id ? (
                     <>
-                      <button className="save-btn" onClick={saveEdit}>Save</button>
-                      <button className="cancel-btn" onClick={cancelEdit}>❌</button>
+                      <button className="save-btn" onClick={saveEdit}>
+                        Save
+                      </button>
+                      <button className="cancel-btn" onClick={cancelEdit}>
+                        ❌
+                      </button>
                     </>
                   ) : (
                     <>
@@ -222,6 +225,12 @@ function Display() {
             ))}
           </div>
         ))}
+      </div>
+
+      <div>
+        <a href="#top">
+          <button className="GoUp-button">Go up</button>
+        </a>
       </div>
     </div>
   );
