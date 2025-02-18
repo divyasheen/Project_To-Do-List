@@ -143,11 +143,11 @@ function Display() {
             {/* Category Heading with Checkbox */}
             <div className="category-header">
               
-              {/* <input
+              <input
                 type="checkbox"
                 checked={tasks.every((task) => task.completed)}
                 onChange={() => toggleCategoryCompletion(category)}
-              /> */}
+              />
 
               <h3>{category}</h3>
             </div>
