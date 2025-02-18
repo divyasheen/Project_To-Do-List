@@ -124,12 +124,13 @@ function Display() {
   return (
     <div className="todo-container">
       <div className="menu">
+        
+        {/* Filter Component */}
+        <Filter setFilter={setFilter} />
+
         <button>
           <NavLink to="/add">Add</NavLink>
         </button>
-
-        {/* Filter Component */}
-        <Filter setFilter={setFilter} />
 
         {/* Sorting Component */}
         <Sort setSort={setSort} />
@@ -168,19 +169,20 @@ function Display() {
                   {/* Edit Mode: Show Input Field */}
                   {editingTaskId === task.id ? (
                     <>
-                      <input
-                        type="text"
-                        value={editText}
-                        onChange={handleEditChange}
-                        className="edit-input"
-                      />
-                      <input
-                        type="date"
-                        value={editTimestamp}
-                        onChange={handleTimestampChange}
-                        className="edit-date"
-                      />
-                    </>
+                    <div className="editMenu">
+                    <textarea
+                      value={editText}
+                      onChange={handleEditChange}
+                      className="edit-input"
+                    />
+                    <input
+                      type="date"
+                      value={editTimestamp}
+                      onChange={handleTimestampChange} 
+                      className="edit-date"
+                    />
+                    </div>
+                  </>
                   ) : (
                     <span>
                       {task.priority ? (

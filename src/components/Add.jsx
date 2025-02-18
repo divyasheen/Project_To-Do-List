@@ -21,7 +21,7 @@ function Add() {
   const handleChange = (e) => {
     setThisData({
       ...thisData,
-      [e.target.name]:e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -41,7 +41,6 @@ function Add() {
       sorttime: new Date().toISOString(), ///NL: stores full timeform for sorting
     };
 
-
     setData((prevData) => [...prevData, newTask]); //DS Ensure previous data i
 
     setThisData({
@@ -56,10 +55,7 @@ function Add() {
 
     navigate("/");
 
-
     console.log("Updated Data:", newTask); //DS Ensure correct data structure
-
-
   };
 
   console.log(thisData);
@@ -82,28 +78,23 @@ function Add() {
     }
   };
 
-
   return (
     <>
       <div className="addContainer">
-
-      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
-
-        {/* Here the Category and Priority will be */}
-<div className="selectComp">
-        <Category 
-          setCategory={(category) => setThisData({ ...thisData, category })} 
-          value={thisData.category} // Ensure category selection is reflected
-        />
-        <Prio setPrior={setPrior}/>
+        <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
+          {/* Here the Category and Priority will be */}
+          <div className="selectComp">
+            <Category
+              setCategory={(category) => setThisData({ ...thisData, category })}
+              value={thisData.category} // Ensure category selection is reflected
+            />
+            <Prio setPrior={setPrior} />
           </div>
-
 
           <div className="formInput">
 
           <label>
             To-Do
-            
             <textarea
               name="text"
               value={thisData.text}
