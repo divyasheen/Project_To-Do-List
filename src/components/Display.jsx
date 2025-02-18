@@ -214,7 +214,7 @@ function Display() {
 
                 <span className="timestamp">
                   ⏳ Due: {task.timestamp ? task.timestamp : "No Date"}
-                  {getReminderMessage(task.timestamp) && (
+                  {!task.completed && getReminderMessage(task.timestamp) && (
                     <span className="reminder animated-reminder">
                       {getReminderMessage(task.timestamp)}
                     </span>
