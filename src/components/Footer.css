@@ -22,11 +22,22 @@
   }
 
   a {
-    padding: 2rem;
+    padding: .5rem;
     font-size: 1.5rem;
     font-family: "Amatic SC", serif;
     font-weight: 700;
-    font-style: normal;
     color: #5451aa;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 690px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
