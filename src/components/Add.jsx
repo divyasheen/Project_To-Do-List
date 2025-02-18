@@ -80,7 +80,7 @@ function Add() {
   return (
     <>
       <div className="addContainer">
-        <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
+        <form  style={priorityColor(thisData.priority)}>
           {/* Here the Category and Priority will be */}
           <div className="selectComp">
             <Category
@@ -114,7 +114,7 @@ function Add() {
               </label>
               <div className="add-buttons">
               
-                <button>Save</button>
+                <button onClick={handleSubmit}>Save</button>
                 <button onClick={() => navigate("/")} className="go-back-btn">Go back</button>
                 
               </div>

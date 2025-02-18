@@ -123,6 +123,39 @@
   text-align: left;
 }
 
+/* Reminder Text Styling */
+.reminder {
+  font-weight: bold;
+  color: #ff4500; 
+  background-color: #fff3cd; 
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-size: 1.1em;
+  text-transform: uppercase;
+}
+/* Animation for the reminder */
+.animated-reminder {
+  animation: pulse 1.5s infinite;
+}
+
+/* Keyframes for the pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
 /* Button Container */
 .task-buttons {
   display: flex;
