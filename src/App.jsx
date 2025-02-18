@@ -4,6 +4,8 @@ import Add from "./components/Add";
 import { Routes, Route } from "react-router-dom";
 import InspoPhrase from "./components/InspoPhrase";
 import Logo from "./components/Logo";
+import Footer from "./components/Footer";
+
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<Display />} />
         <Route path="/add" element={<Add />} />
       </Routes>
+
+      <Footer/>
     </>
   );
 }
