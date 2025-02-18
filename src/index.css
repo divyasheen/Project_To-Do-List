@@ -15,7 +15,7 @@ body{
 
 button {
   padding: 8px 12px;
-  max-width: 102px;
+  width: 102px;
 
   border: none;
   border-radius: 5px;
@@ -37,6 +37,8 @@ select {
   padding: 0.25rem;
 
   border-radius: 100px;
+  border: 1px solid #fcd29c;
+  box-shadow: 2px 2px 2px #967cca;
 
   font-family: var(--main-font);
   font-size: var(--main-font-size);
