@@ -13,6 +13,21 @@ function Display() {
   const [editTimestamp, setEditTimestamp] = useState("");
   const [sort, setSort] = useState("new");
 
+  // Function to determine reminder message
+  const getReminderMessage = (timestamp) => {
+    if (!timestamp) return null;
+    const dueDate = new Date(timestamp);
+    const today = new Date();
+    const diff = (dueDate - today) / (1000 * 60 * 60 * 24);
+
+    if (diff <= 1 && diff > 0) {
+      return "⚠️ Due Soon!";
+    } else if (diff <= 0) {
+      return "⚠️ Overdue!";
+    }
+    return null;
+  };
+
   // Toggle task completion
   const toggleTaskCompletion = (taskId) => {
     setData((prevTasks) =>
@@ -63,10 +78,10 @@ function Display() {
     setData((prevTasks) =>
       prevTasks.map((task) =>
         task.id === editingTaskId
-          ? { 
-              ...task, 
-              text: editText, 
-              timestamp: editTimestamp === "" ? null : editTimestamp // Allow clearing the due date
+          ? {
+              ...task,
+              text: editText,
+              timestamp: editTimestamp === "" ? null : editTimestamp, // Allow clearing the due date
             }
           : task
       )
@@ -75,8 +90,6 @@ function Display() {
     setEditText("");
     setEditTimestamp(""); // Reset timestamp state
   };
-  
-  
 
   // Cancel Editing
   const cancelEdit = () => {
@@ -189,17 +202,23 @@ function Display() {
                     </>
                   ) : (
                     <span>
-                      {task.priority ? 
-                        <span className = "prio-text">{task.priority}</span>
-                       : null}{" "}
+                      {task.priority ? (
+                        <span className="prio-text">{task.priority}</span>
+                      ) : null}{" "}
                       <strong>{task.text}</strong>
                     </span>
                   )}
                 </div>
 
-                {/* Timestamp */}
+                {/* Timestamp & Reminder */}
+
                 <span className="timestamp">
-                ⏳ Due: {task.timestamp ? task.timestamp : "No Date"}
+                  ⏳ Due: {task.timestamp ? task.timestamp : "No Date"}
+                  {!task.completed && getReminderMessage(task.timestamp) && (
+                    <span className="reminder animated-reminder">
+                      {getReminderMessage(task.timestamp)}
+                    </span>
+                  )}
                 </span>
 
                 {/* Task Actions */}
@@ -215,8 +234,20 @@ function Display() {
                     </>
                   ) : (
                     <>
-                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text, task.timestamp)}>Edit</button>
-                      <button className="delete-btn" onClick={() => deleteTask(task.id)}>Delete</button>
+                      <button
+                        className="edit-btn"
+                        onClick={() =>
+                          startEditing(task.id, task.text, task.timestamp)
+                        }
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="delete-btn"
+                        onClick={() => deleteTask(task.id)}
+                      >
+                        Delete
+                      </button>
                     </>
                   )}
                 </div>
