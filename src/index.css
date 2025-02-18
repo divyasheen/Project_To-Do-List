@@ -15,7 +15,7 @@ body{
 
 button {
   padding: 8px 12px;
-  max-width: 102px;
+  width: 102px;
 
   border: none;
   border-radius: 5px;

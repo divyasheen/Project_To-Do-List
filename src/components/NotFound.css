@@ -1,0 +1,23 @@
+.not-found-container {
+    background: #bbe9ffb0;
+    padding: 20px;
+    min-height: 100vh;
+    margin-top: 6rem;
+    border-radius: 100px;
+    text-align: center;
+
+    h1 {
+        font-family: var(--main-font);
+        font-size: 10rem;
+    }
+
+    h3, p {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 1rem;
+    }
+
+    .go-back {
+        width: 200px;
+        margin: .5rem auto;
+    }
+}
