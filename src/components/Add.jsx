@@ -26,6 +26,12 @@ function Add() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Check if text is empty
+    if (!thisData.text.trim()) {
+      alert("Please enter a to-do item.");
+      return;
+    }
+
 
     // Assign ID before setting data
     const newTask = {
@@ -92,17 +98,6 @@ function Add() {
 
 
           <div className="formInput">
-
-            <label>
-              To-Do
-              <textarea
-                name="text"
-                value={thisData.text}
-                placeholder="Type your to-do here ..."
-                onChange={handleChange}
-              ></textarea>
-            </label>
-
           <label>
             To-Do
             <textarea
@@ -110,6 +105,7 @@ function Add() {
               value={thisData.text}
               placeholder="Type your to-do here ..."
               onChange={handleChange}
+              required
             ></textarea>
           </label>
 
@@ -124,6 +120,7 @@ function Add() {
               />
             </label>
             <button>Save</button>
+            </div>
           </div>
         </form>
       </div>
