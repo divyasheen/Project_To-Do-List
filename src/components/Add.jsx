@@ -114,7 +114,7 @@ function Add() {
               </label>
               <div className="add-buttons">
               
-                <button onSubmit={handleSubmit}>Save</button>
+                <button onClick={handleSubmit}>Save</button>
                 <button onClick={() => navigate("/")} className="go-back-btn">Go back</button>
                 
               </div>
