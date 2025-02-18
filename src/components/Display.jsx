@@ -186,7 +186,7 @@ function Display() {
                   ) : (
                     <span>
                       {task.priority ? 
-                        <p className = "">{task.priority}</p>
+                        <span className = "prio-text">{task.priority}</span>
                        : null}{" "}
                       <strong>{task.text}</strong>
                     </span>
