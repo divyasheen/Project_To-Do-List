@@ -30,7 +30,9 @@ function Display() {
 
     setData((prevTasks) =>
       prevTasks.map((task) =>
-        task.category === category ? { ...task, completed: !allCompleted } : task
+        task.category === category
+          ? { ...task, completed: !allCompleted }
+          : task
       )
     );
   };
@@ -55,7 +57,6 @@ function Display() {
   const handleTimestampChange = (e) => {
     setEditTimestamp(e.target.value);
   };
-
 
   // Save Edited Task
   const saveEdit = () => {
@@ -86,28 +87,31 @@ function Display() {
   });
   const priorityColor = (priority) => {
     switch (priority) {
-      case 'important':
-        return { backgroundColor: 'lightcoral' };
-      case 'medium':
+      case "important":
+        return { backgroundColor: "lightcoral" };
+      case "medium":
         return { backgroundColor: "#FFFED3" };
-      case 'low':
-        return { backgroundColor: 'lightgreen' };
+      case "low":
+        return { backgroundColor: "lightgreen" };
       default:
-        return { backgroundColor: '' };
+        return { backgroundColor: "" };
     }
   };
- // NL: Sorting function, based on filtering option as only actual tasks should be sorted
+  // NL: Sorting function, based on filtering option as only actual tasks should be sorted
   const sortedTasks = [...filteredTasks];
 
   if (sort === "important") {
     sortedTasks.sort((a, b) => {
-      const priorityOrder = { important: 1, medium: 2, low: 3 };
-      return (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4);
+      const priorityOrder = { important: 1, medium: 2, low: 3, default: 4 };
+      return (
+        (priorityOrder[a.priority] || priorityOrder.default) -
+        (priorityOrder[b.priority] || priorityOrder.default)
+      );
     });
   } else if (sort === "new") {
-    sortedTasks.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    sortedTasks.sort((a, b) => new Date(b.sorttime) - new Date(a.sorttime));
   } else if (sort === "latest") {
-    sortedTasks.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+    sortedTasks.sort((a, b) => new Date(a.sorttime) - new Date(b.sorttime));
   }
 
   // Now group tasks AFTER sorting
@@ -119,7 +123,6 @@ function Display() {
 
   return (
     <div className="todo-container">
-
       <div className="menu">
         <button>
           <NavLink to="/add">Add</NavLink>
@@ -138,15 +141,14 @@ function Display() {
           <div key={category} className="category-group">
             {/* Category Heading with Checkbox */}
             <div className="category-header">
-              <input
+              
+              {/* <input
                 type="checkbox"
                 checked={tasks.every((task) => task.completed)}
                 onChange={() => toggleCategoryCompletion(category)}
-              />
-
+              /> */}
 
               <h3>{category}</h3>
-
             </div>
 
             {tasks.map((task) => (
@@ -166,28 +168,33 @@ function Display() {
                   {/* Edit Mode: Show Input Field */}
                   {editingTaskId === task.id ? (
                     <>
-                    <input
-                      type="text"
-                      value={editText}
-                      onChange={handleEditChange}
-                      className="edit-input"
-                    />
-                    <input
-                      type="date"
-                      value={editTimestamp}
-                      onChange={handleTimestampChange} 
-                      className="edit-date"
-                    />
-                  </>
+                      <input
+                        type="text"
+                        value={editText}
+                        onChange={handleEditChange}
+                        className="edit-input"
+                      />
+                      <input
+                        type="date"
+                        value={editTimestamp}
+                        onChange={handleTimestampChange}
+                        className="edit-date"
+                      />
+                    </>
                   ) : (
                     <span>
-                      {task.text || "No text available"} <strong>({task.priority})</strong>
+                      {task.priority ? (
+                        <strong>({task.priority})</strong>
+                      ) : null}{" "}
+                      {task.text}
                     </span>
                   )}
                 </div>
 
                 {/* Timestamp */}
-                <span className="timestamp">Due: {task.timestamp || "No Date"}</span>
+                <span className="timestamp">
+                  Due: {task.timestamp || "No Date"}
+                </span>
 
                 {/* Task Actions */}
                 <div className="task-buttons">
@@ -213,4 +220,3 @@ function Display() {
 }
 
 export default Display;
-

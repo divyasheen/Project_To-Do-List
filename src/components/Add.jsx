@@ -13,6 +13,7 @@ function Add() {
     text: "",
     completed: false,
     timestamp: "",
+    sorttime:"",
     priority: "",
   });
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ function Add() {
     const newTask = {
       ...thisData,
       id: Date.now(),
-      timestamp: new Date().toISOString(), ///NL: stores full timeform for sorting
+      sorttime: new Date().toISOString(), ///NL: stores full timeform for sorting
     };
 
 
@@ -48,7 +49,8 @@ function Add() {
       category: "",
       text: "",
       completed: false,
-      timestamp: new Date().toISOString().slice(0,10),
+      timestamp: thisData.length,
+      sorttime: new Date().toISOString(),
       priority: "",
     });
 
@@ -98,8 +100,10 @@ function Add() {
 
 
           <div className="formInput">
+
           <label>
             To-Do
+            
             <textarea
               name="text"
               value={thisData.text}
