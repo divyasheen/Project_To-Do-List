@@ -20,4 +20,4 @@ In inspoPhrase component I have fetched a list of inspirational qoutes with useE
 -> VOILA!!now your code is UPTODATE!
 
 #After taking code from main, when you get conflicts,resolve it and push again,if any error comes :
-git push -f -u origin divyasheen 
+git push -f -u origin branchname
