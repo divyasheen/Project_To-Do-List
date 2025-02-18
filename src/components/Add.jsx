@@ -21,12 +21,18 @@ function Add() {
   const handleChange = (e) => {
     setThisData({
       ...thisData,
-      [e.target.name]:e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Check if text is empty
+    if (!thisData.text.trim()) {
+      alert("Please enter a to-do item.");
+      return;
+    }
+
 
     // Assign ID before setting data
     const newTask = {
@@ -34,7 +40,6 @@ function Add() {
       id: Date.now(),
       sorttime: new Date().toISOString(), ///NL: stores full timeform for sorting
     };
-
 
     setData((prevData) => [...prevData, newTask]); //DS Ensure previous data i
 
@@ -50,10 +55,7 @@ function Add() {
 
     navigate("/");
 
-
     console.log("Updated Data:", newTask); //DS Ensure correct data structure
-
-
   };
 
   console.log(thisData);
@@ -76,33 +78,29 @@ function Add() {
     }
   };
 
-
   return (
     <>
       <div className="addContainer">
-
-      <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)} >
-
-        {/* Here the Category and Priority will be */}
-<div className="selectComp">
-        <Category 
-          setCategory={(category) => setThisData({ ...thisData, category })} 
-          value={thisData.category} // Ensure category selection is reflected
-        />
-        <Prio setPrior={setPrior}/>
+        <form onSubmit={handleSubmit} style={priorityColor(thisData.priority)}>
+          {/* Here the Category and Priority will be */}
+          <div className="selectComp">
+            <Category
+              setCategory={(category) => setThisData({ ...thisData, category })}
+              value={thisData.category} // Ensure category selection is reflected
+            />
+            <Prio setPrior={setPrior} />
           </div>
-
 
           <div className="formInput">
 
-           <label>
+          <label>
             To-Do
-            
             <textarea
               name="text"
               value={thisData.text}
               placeholder="Type your to-do here ..."
               onChange={handleChange}
+              required
             ></textarea>
           </label>
 

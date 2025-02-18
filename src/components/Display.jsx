@@ -124,12 +124,13 @@ function Display() {
   return (
     <div className="todo-container">
       <div className="menu">
+        
+        {/* Filter Component */}
+        <Filter setFilter={setFilter} />
+
         <button>
           <NavLink to="/add">Add</NavLink>
         </button>
-
-        {/* Filter Component */}
-        <Filter setFilter={setFilter} />
 
         {/* Sorting Component */}
         <Sort setSort={setSort} />
@@ -168,19 +169,20 @@ function Display() {
                   {/* Edit Mode: Show Input Field */}
                   {editingTaskId === task.id ? (
                     <>
-                      <input
-                        type="text"
-                        value={editText}
-                        onChange={handleEditChange}
-                        className="edit-input"
-                      />
-                      <input
-                        type="date"
-                        value={editTimestamp}
-                        onChange={handleTimestampChange}
-                        className="edit-date"
-                      />
-                    </>
+                    <div className="editMenu">
+                    <textarea
+                      value={editText}
+                      onChange={handleEditChange}
+                      className="edit-input"
+                    />
+                    <input
+                      type="date"
+                      value={editTimestamp}
+                      onChange={handleTimestampChange} 
+                      className="edit-date"
+                    />
+                    </div>
+                  </>
                   ) : (
                     <span>
                       {task.priority ? (
@@ -200,27 +202,13 @@ function Display() {
                 <div className="task-buttons">
                   {editingTaskId === task.id ? (
                     <>
-                      <button className="save-btn" onClick={saveEdit}>
-                        💾 Save
-                      </button>
-                      <button className="cancel-btn" onClick={cancelEdit}>
-                        ❌ Cancel
-                      </button>
+                      <button className="save-btn" onClick={saveEdit}>Save</button>
+                      <button className="cancel-btn" onClick={cancelEdit}>❌</button>
                     </>
                   ) : (
                     <>
-                      <button
-                        className="edit-btn"
-                        onClick={() => startEditing(task.id, task.text)}
-                      >
-                        ✏️ Edit
-                      </button>
-                      <button
-                        className="delete-btn"
-                        onClick={() => deleteTask(task.id)}
-                      >
-                        🗑️ Delete
-                      </button>
+                      <button className="edit-btn" onClick={() => startEditing(task.id, task.text)}> Edit</button>
+                      <button className="delete-btn" onClick={() => deleteTask(task.id)}>Delete</button>
                     </>
                   )}
                 </div>

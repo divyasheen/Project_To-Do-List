@@ -1,154 +1,19 @@
 .todo-container {
   background: #bbe9ffb0;
-
   padding: 20px;
   min-height: 100vh;
   margin-top: 6rem;
-
   border-radius: 100px;
-
   text-align: center;
 }
 
 .menu {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-
-  padding: 1rem;
-  
-  .todo-container {
-    text-align: center;
-    padding: 20px;
-    min-height: 100vh;
-    background: #bbe9ffb0;
-    border-radius: 100px;
-    margin-top: 6rem;
-  }
-  .menu {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding: 1rem;
-
-    button {
-      width: 100px;
-      background-color: #FFFED3;
-      font-family: "Amatic SC", serif;
-    }
-}
- 
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  select {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  /*Grid Layout for To-Do List */
-  .todo-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: auto;
-
-    border: 2px solid red;
-  }
-  
-  /* Task Card Styling */
-  .todo-item {
-    display: flex;
-    flex-direction: column;
-    background: #FFE9D0;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
-    height: auto;
-    margin-bottom: 10px; 
-  }
-  
-  /* Hover Effect */
-  .todo-item:hover {
-    transform: scale(1.1);
-  }
-  .task-header h3 {
-    margin-bottom: 8px;
-  }
-  
-  .task-content p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  .category-group {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f4f4f4;
-    
-  }
-  
-  .category-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  
-  /* Task Content */
-  .task-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 10px;
-  }
-  
-  /* Checkbox & Text */
-  .task-content input {
-    transform: scale(1.2);
-    cursor: pointer;
-  }
-  
-  /* Completed Task Style */
-  .completed span {
-    text-decoration: line-through;
-    color: gray;
-  }
-  
-  /* Timestamp */
-  .timestamp {
-    font-size: 12px;
-    color: gray;
-    margin-top: 5px;
-  }
-  
-  /* Button Container */
-  .task-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  /* Buttons */
-  button {
-    width: 102px;
-    background-color: #ffe9d0;
-  }
-
-  button:hover {
-    background-color: #ffd3b6;
-  }
+  display: inline-block;
 }
 
-h1 {
-  margin-bottom: 20px;
+.menu button {
+  margin: 0 auto;
+  margin-bottom: 1rem
 }
 
 /*Grid Layout for To-Do List */
@@ -156,28 +21,20 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-
   max-width: 1200px;
   margin: auto;
 }
 
 /* Task Card Styling */
 .todo-item {
-  background: #b1afff;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  height: 400px;
-  width: 300px;
+  background: #b1afff;
   padding: 15px;
-  margin: 0 auto;
-
   border-radius: 12px;
   box-shadow: 4px 4px 15px #0000001a;
-
+  height: auto;
+  margin-bottom: 10px;
   transition: 0.3s ease;
 }
 
@@ -186,13 +43,43 @@ h1 {
   transform: scale(1.1);
 }
 
+.task-header h3 {
+  margin-bottom: 8px;
+}
+
+.task-content p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.category-group {
+  margin-bottom: 20px;
+  padding: 1rem;
+  border-radius: 5px;
+  background: #b1afff;
+  background: linear-gradient(180deg, #bebcfc88 0%, #c6c3fc 25%, #00000000 63%);
+  font-family: Arial, sans-serif;
+
+  h3 {
+    padding: 0.5rem 0;
+  }
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 /* Task Content */
 .task-content {
   display: flex;
   align-items: center;
-  gap: 10px;
-
   width: 100%;
+  gap: 10px;
+  font-size: 1.5rem;
 }
 
 /* Checkbox & Text */
@@ -212,6 +99,7 @@ h1 {
   font-size: 12px;
   color: gray;
   margin-top: 5px;
+  text-align: left;
 }
 
 /* Button Container */
@@ -222,6 +110,15 @@ h1 {
 }
 
 /* Buttons */
+button {
+  width: 102px;
+  background-color: #FFE9D0;
+}
+
+button:hover {
+  background-color: #fcd2a2;
+}
+
 .delete-btn {
   background: #bbe9ff;
   color: black;
@@ -246,4 +143,35 @@ h1 {
 
 .cancel-btn {
   font-size: 1.59rem;
+}
+
+.editMenu {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem;
+  width: 80%;
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    paddinG: .5rem;
+  }
+
+  input {
+    border: 2px solid red;
+    width: 190px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: .3rem;
+  }
+}
+
+@media screen and (min-width: 652px) {
+  .menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 1rem;
+  }
 }
