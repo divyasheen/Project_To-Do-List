@@ -75,10 +75,11 @@ git push -f -u origin branchName
 At first glance at our TO-DO App, it welcomes you with random phrase of wisdom or inspiration and surprises with animated logo. 
 
 Button "Add" opens for you the form to create your to-do, choosing (or not) priority, category and due date. Although writing the text of your task is mandatory if you want it to be created. 
-When deciding to assign "Due date", you will get a warning alert if you accidentally forgot about your task's deadline.
 Also you can use "Go back" button if you change your mind.
 
 For the list of your tasks, which are presented as colorful cards divided (or not) into various groups, you are welcome to "Sort" them according to the level of priority (important, medium, low) and date of creation (new, old). And "Filter" option will show you all, completed and pending tasks. 
+When "Due date" is assigned, you will get a warning sign of "Due Soon or Overdue" just to remind about your task's deadline.
+You can also edit your tasks and due date. You can check the tasks and mark as completed or if the task is no longer needed,you can "DELETE" the task.
 For more convenience if the list of tasks is long, "Go up" button is at your service.
 
 Finally, the footer will recover the contact information of our project-members.
