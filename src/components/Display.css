@@ -1,5 +1,6 @@
 .todo-container {
-  background: #bbe9ffb0;
+  background: linear-gradient(180deg, #ffffff98 50%, #ffffff98 50%), url("../assets/flowers.avif");
+  background-position: center;
   padding: 20px;
   min-height: 100vh;
   margin-top: 6rem;
@@ -73,8 +74,8 @@
   margin-bottom: 20px;
   padding: 1rem;
   border-radius: 5px;
-  background: #b1afff;
-  background: linear-gradient(180deg, #bebcfc88 0%, #c6c3fc 25%, #00000000 63%);
+  background: #8b87f7;
+  background: linear-gradient(180deg, #bebcfcb7 0%, #c6c3fc 25%, #00000000 63%);
   font-family: Arial, sans-serif;
 
   h3 {
