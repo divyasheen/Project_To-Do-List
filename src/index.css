@@ -24,6 +24,7 @@ button {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   color: black;
+  font-weight: bold;
 
   cursor: pointer;
   transition: 0.3s;
@@ -42,6 +43,7 @@ select {
 
   font-family: var(--main-font);
   font-size: var(--main-font-size);
+  font-weight: bold;
 
   option {
     font-size: 16px;
